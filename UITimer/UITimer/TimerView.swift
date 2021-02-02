@@ -1,6 +1,6 @@
 //
 //  TimerView.swift
-//  HomaMarketSymbols
+//  UITimer
 //
 //  Created by soroush amini araste on 10/5/20.
 //  Copyright © 2020 soroush amini araste. All rights reserved.
@@ -10,6 +10,7 @@ import UIKit
 
 open class TimerView: UIView {
     
+    /// Sets the time to countdown from.
     open var countDown: Int = 1 {
         didSet {
             self.createTimerLabels()
@@ -18,6 +19,12 @@ open class TimerView: UIView {
         }
     }
     
+    /// Sets the time to countdown from.
+    /// - Parameters:
+    ///   - days: Days left.
+    ///   - hours: Hours left.
+    ///   - minutes: Minutes left.
+    ///   - seconds: Seconds left.
     open func countdownFrom(days: Int, hours: Int, minutes: Int, seconds: Int) {
         let time = seconds + (minutes * 60) + (hours * 3600) + (days * 86400)
         self.countDown = time
