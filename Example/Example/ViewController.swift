@@ -20,7 +20,8 @@ class ViewController: UIViewController {
     
     //all config
     fileprivate func allConfig() {
-        self.timer.remainingTime = 323210
+        self.timer.convertToPersian = true
+        self.timer.countDown = 323210
         self.view.addSubview(self.timer)
         self.timer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(item: self.timer, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
