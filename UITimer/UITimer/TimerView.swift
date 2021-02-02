@@ -19,11 +19,24 @@ open class TimerView: UIView {
     }
     
     /// Converts the countdown numbers shown to Persian.
-    open var convertToPersian = false
+    open var convertToPersian = false {
+        didSet {
+            if self.convertToPersian == true {
+                self.titles = ["روز", "ساعت", "دقیقه" , "ثانیه"]                
+            }
+        }
+    }
     
     fileprivate var timer = Timer()
     fileprivate var labelArray: [UILabel] = []
-    lazy fileprivate var titles: [String] = self.convertToPersian ? ["روز", "ساعت", "دقیقه" , "ثانیه"] : ["Days", "Hours", "Minutes", "Seconds"]
+    fileprivate var titles: [String] = ["Days", "Hours", "Minutes", "Seconds"] {
+        didSet {
+            for i in 0...3 {
+                let label = titlesStackView.arrangedSubviews[i] as! UILabel
+                label.text = titles[i]
+            }
+        }
+    }
 
     fileprivate var temp: Int = 0
     fileprivate var timerStackView: UIStackView = {
@@ -155,7 +168,8 @@ open class TimerView: UIView {
             let label = UILabel()
             label.layer.cornerRadius = 10
             label.textAlignment = .center
-            label.backgroundColor = .cyan
+            label.backgroundColor = .systemBlue
+            label.textColor = .white
 //            label.configure(text: "", fontSize: 17, textColor: .white, textAlignment: .center, fontType: .yekan_bold)
 //            label.backgroundColor = .init(hex: "00ACAD")
             label.clipsToBounds = true
