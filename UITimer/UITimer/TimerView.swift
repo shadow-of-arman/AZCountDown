@@ -18,6 +18,11 @@ open class TimerView: UIView {
         }
     }
     
+    open func countdownFrom(days: Int, hours: Int, minutes: Int, seconds: Int) {
+        let time = seconds + (minutes * 60) + (hours * 3600) + (days * 86400)
+        self.countDown = time
+    }
+    
     /// Converts the countdown numbers shown to Persian.
     open var convertToPersian = false {
         didSet {
@@ -164,6 +169,7 @@ open class TimerView: UIView {
     }
     
     fileprivate func createTimerLabels() {
+        self.labelArray = []
         for _ in 0...3 {
             let label = UILabel()
             label.layer.cornerRadius = 10
@@ -173,17 +179,17 @@ open class TimerView: UIView {
 //            label.configure(text: "", fontSize: 17, textColor: .white, textAlignment: .center, fontType: .yekan_bold)
 //            label.backgroundColor = .init(hex: "00ACAD")
             label.clipsToBounds = true
-            labelArray.append(label)
+            self.labelArray.append(label)
         }
-        labelArray.forEach { (label) in
+        self.labelArray.forEach { (label) in
             label.text = label.text?.convertEngNumToPersianNum()
-            timerStackView.addArrangedSubview(label)
+            self.timerStackView.addArrangedSubview(label)
         }
     }
     
     @objc func timerCalculation() {
-        configCountDownTimer(totalTime: temp - 1)
-        temp -= 1
+        self.configCountDownTimer(totalTime: temp - 1)
+        self.temp -= 1
     }
     
     //MARK: - OBJC FUNCTIONS
