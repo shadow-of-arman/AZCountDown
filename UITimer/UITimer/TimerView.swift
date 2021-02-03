@@ -38,7 +38,7 @@ class TimerView: UIView {
     /// - Parameter frame: The frame rectangle for the view, measured in points. The origin of the frame is relative to the superview in which you plan to add it. This method uses the frame rectangle to set the `center` and `bounds` properties accordingly.
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .systemBlue
+        self.backgroundColor = #colorLiteral(red: 0.9322072864, green: 0.8707377911, blue: 0.9809352756, alpha: 1)
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
         self.labelConfig()
@@ -48,7 +48,7 @@ class TimerView: UIView {
     /// - Parameter coder: An unarchiver object.
     public required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.backgroundColor = .systemBlue
+        self.backgroundColor = #colorLiteral(red: 0.9322072864, green: 0.8707377911, blue: 0.9809352756, alpha: 1)
         self.layer.cornerRadius = 10
         self.clipsToBounds = true
         self.labelConfig()
@@ -65,7 +65,7 @@ class TimerView: UIView {
         self.addSubview(self.timeLabel)
         self.labelConstraints()
         self.timeLabel.textAlignment = .center
-        self.timeLabel.textColor = .white
+        self.timeLabel.textColor = #colorLiteral(red: 0.5561129451, green: 0.1538559794, blue: 0.629018724, alpha: 1)
         self.timeLabel.backgroundColor = .clear
     }
     //constraints

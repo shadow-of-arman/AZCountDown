@@ -39,6 +39,24 @@ open class UITimer: UIView {
         }
     }
     
+    open func setBorder(width: CGFloat, color: UIColor, cornerRadius: CGFloat) {
+        let count = self.labelArray.count - 1
+        for i in 0...count {
+            self.labelArray[i].layer.borderWidth = width
+            self.labelArray[i].layer.borderColor = color.cgColor
+            self.labelArray[i].layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    open var textColor: UIColor = .black {
+        didSet {
+            for i in 0...3 {
+                let label = titlesStackView.arrangedSubviews[i] as! UILabel
+                label.textColor = self.textColor
+            }
+        }
+    }
+    
     fileprivate var timer = Timer()
     fileprivate var labelArray: [TimerView] = []
     fileprivate var titles: [String] = ["Days", "Hours", "Minutes", "Seconds"] {
@@ -174,23 +192,55 @@ open class UITimer: UIView {
             }
         } else {
             if labelArray[0].timeString != String(convertedTime.0) {
-                UIView.transition(with: labelArray[0], duration: 0.6, options: .transitionFlipFromBottom) {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+                    self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[0].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
+                    self.labelArray[0].timeLabel.alpha = 0.1
+                } completion: { (_) in
                     self.labelArray[0].timeString = String(convertedTime.0)
+                    self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[0].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                        self.labelArray[0].timeLabel.transform = .identity
+                        self.labelArray[0].timeLabel.alpha = 1
+                    }
                 }
             }
             if labelArray[1].timeString != String(convertedTime.1) {
-                UIView.transition(with: labelArray[1], duration: 0.6, options: .transitionFlipFromBottom) {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+                    self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[1].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
+                    self.labelArray[1].timeLabel.alpha = 0.1
+                } completion: { (_) in
                     self.labelArray[1].timeString = String(convertedTime.1)
+                    self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[1].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                        self.labelArray[1].timeLabel.transform = .identity
+                        self.labelArray[1].timeLabel.alpha = 1
+                    }
                 }
             }
             if labelArray[2].timeString != String(convertedTime.2) {
-                UIView.transition(with: labelArray[2], duration: 0.6, options: .transitionFlipFromBottom) {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+                    self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[2].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
+                    self.labelArray[2].timeLabel.alpha = 0.1
+                } completion: { (_) in
                     self.labelArray[2].timeString = String(convertedTime.2)
+                    self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[2].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                        self.labelArray[2].timeLabel.transform = .identity
+                        self.labelArray[2].timeLabel.alpha = 1
+                    }
                 }
             }
             if labelArray[3].timeString != String(convertedTime.3) {
-                UIView.transition(with: labelArray[3], duration: 0.6, options: .transitionFlipFromBottom) {
+                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                    self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[3].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
+                    self.labelArray[3].timeLabel.alpha = 0.1
+                } completion: { (_) in
                     self.labelArray[3].timeString = String(convertedTime.3)
+                    self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[3].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
+                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                        self.labelArray[3].timeLabel.transform = .identity
+                        self.labelArray[3].timeLabel.alpha = 1
+                    }
                 }
             }
         }
