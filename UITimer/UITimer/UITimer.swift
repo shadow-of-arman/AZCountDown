@@ -533,24 +533,22 @@ open class UITimer: UIView {
         } else {
             self.configDoubleDigitCountDownTimer(totalTime: temp - 1)
         }
-        if self.temp == 1 {
+        self.temp -= 1
+        self.delegate?.secondsRemaining(seconds: temp)
+        if self.temp == 0 {
             self.delegate?.countDownFinished()
             self.timer.invalidate()
         }
-        self.temp -= 1
-    }
-    
-    //MARK: - OBJC FUNCTIONS
-    
-    //MARK: - UPDATE UI
-    fileprivate func updateUI() {
-        
     }
 }
 
 extension UITimer: UITimerDelegate {
+    public func secondsRemaining(seconds: Int) {
+        //seconds remaining.
+    }
+    
     public func countDownFinished() {
-        //finished
+        //finished.
     }
 }
 

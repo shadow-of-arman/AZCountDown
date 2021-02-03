@@ -9,4 +9,5 @@ import Foundation
 
 public protocol UITimerDelegate {
     func countDownFinished()
+    func secondsRemaining(seconds: Int)
 }
