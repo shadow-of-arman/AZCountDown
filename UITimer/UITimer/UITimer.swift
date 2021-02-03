@@ -2,8 +2,8 @@
 //  UITimer.swift
 //  UITimer
 //
-//  Created by soroush amini araste on 10/5/20.
-//  Copyright © 2020 soroush amini araste. All rights reserved.
+//  Created by soroush Amini Araste on 10/5/20.
+//  Copyright © 2020 soroush Amini Araste. All rights reserved.
 //
 
 import UIKit
@@ -40,7 +40,7 @@ open class UITimer: UIView {
     }
     
     fileprivate var timer = Timer()
-    fileprivate var labelArray: [UILabel] = []
+    fileprivate var labelArray: [TimerView] = []
     fileprivate var titles: [String] = ["Days", "Hours", "Minutes", "Seconds"] {
         didSet {
             for i in 0...3 {
@@ -120,45 +120,45 @@ open class UITimer: UIView {
     fileprivate func configCountDownTimer(totalTime: Int) {
         let convertedTime = secondsToDaysHoursMinutesSeconds(seconds: totalTime)
         if self.convertToPersian == true {
-            if labelArray[0].text != String(convertedTime.0).convertEngNumToPersianNum() {
+            if labelArray[0].timeString != String(convertedTime.0).convertEngNumToPersianNum() {
                 UIView.transition(with: labelArray[0], duration: 0.6, options: .transitionFlipFromBottom) {
-                    self.labelArray[0].text = String(convertedTime.0).convertEngNumToPersianNum()
+                    self.labelArray[0].timeString = String(convertedTime.0).convertEngNumToPersianNum()
                 }
             }
-            if labelArray[1].text != String(convertedTime.1).convertEngNumToPersianNum() {
+            if labelArray[1].timeString != String(convertedTime.1).convertEngNumToPersianNum() {
                 UIView.transition(with: labelArray[1], duration: 0.6, options: .transitionFlipFromBottom) {
-                    self.labelArray[1].text = String(convertedTime.1).convertEngNumToPersianNum()
+                    self.labelArray[1].timeString = String(convertedTime.1).convertEngNumToPersianNum()
                 }
             }
-            if labelArray[2].text != String(convertedTime.2).convertEngNumToPersianNum() {
+            if labelArray[2].timeString != String(convertedTime.2).convertEngNumToPersianNum() {
                 UIView.transition(with: labelArray[2], duration: 0.6, options: .transitionFlipFromBottom) {
-                    self.labelArray[2].text = String(convertedTime.2).convertEngNumToPersianNum()
+                    self.labelArray[2].timeString = String(convertedTime.2).convertEngNumToPersianNum()
                 }
             }
-            if labelArray[3].text != String(convertedTime.3).convertEngNumToPersianNum() {
+            if labelArray[3].timeString != String(convertedTime.3).convertEngNumToPersianNum() {
                 UIView.transition(with: labelArray[3], duration: 0.6, options: .transitionFlipFromBottom) {
-                    self.labelArray[3].text = String(convertedTime.3).convertEngNumToPersianNum()
+                    self.labelArray[3].timeString = String(convertedTime.3).convertEngNumToPersianNum()
                 }
             }
         } else {
-            if labelArray[0].text != String(convertedTime.0) {
+            if labelArray[0].timeString != String(convertedTime.0) {
                 UIView.transition(with: labelArray[0], duration: 0.6, options: .transitionFlipFromBottom) {
-                    self.labelArray[0].text = String(convertedTime.0)
+                    self.labelArray[0].timeString = String(convertedTime.0)
                 }
             }
-            if labelArray[1].text != String(convertedTime.1) {
+            if labelArray[1].timeString != String(convertedTime.1) {
                 UIView.transition(with: labelArray[1], duration: 0.6, options: .transitionFlipFromBottom) {
-                    self.labelArray[1].text = String(convertedTime.1)
+                    self.labelArray[1].timeString = String(convertedTime.1)
                 }
             }
-            if labelArray[2].text != String(convertedTime.2) {
+            if labelArray[2].timeString != String(convertedTime.2) {
                 UIView.transition(with: labelArray[2], duration: 0.6, options: .transitionFlipFromBottom) {
-                    self.labelArray[2].text = String(convertedTime.2)
+                    self.labelArray[2].timeString = String(convertedTime.2)
                 }
             }
-            if labelArray[3].text != String(convertedTime.3) {
+            if labelArray[3].timeString != String(convertedTime.3) {
                 UIView.transition(with: labelArray[3], duration: 0.6, options: .transitionFlipFromBottom) {
-                    self.labelArray[3].text = String(convertedTime.3)
+                    self.labelArray[3].timeString = String(convertedTime.3)
                 }
             }
         }
@@ -178,18 +178,13 @@ open class UITimer: UIView {
     fileprivate func createTimerLabels() {
         self.labelArray = []
         for _ in 0...3 {
-            let label = UILabel()
-            label.layer.cornerRadius = 10
-            label.textAlignment = .center
-            label.backgroundColor = .systemBlue
-            label.textColor = .white
+            let label = TimerView()
 //            label.configure(text: "", fontSize: 17, textColor: .white, textAlignment: .center, fontType: .yekan_bold)
 //            label.backgroundColor = .init(hex: "00ACAD")
-            label.clipsToBounds = true
             self.labelArray.append(label)
         }
         self.labelArray.forEach { (label) in
-            label.text = label.text?.convertEngNumToPersianNum()
+            label.timeString = label.timeString.convertEngNumToPersianNum()
             self.timerStackView.addArrangedSubview(label)
         }
     }
