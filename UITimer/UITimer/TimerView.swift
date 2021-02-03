@@ -66,6 +66,7 @@ class TimerView: UIView {
         self.labelConstraints()
         self.timeLabel.textAlignment = .center
         self.timeLabel.textColor = #colorLiteral(red: 0.5561129451, green: 0.1538559794, blue: 0.629018724, alpha: 1)
+        self.timeLabel.text = "0"
         self.timeLabel.backgroundColor = .clear
     }
     //constraints

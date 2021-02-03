@@ -11,6 +11,7 @@
 		454ABD5A25C962A8008D5D32 /* UITimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD5925C962A8008D5D32 /* UITimer.swift */; };
 		454ABD6325CA7FA1008D5D32 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6225CA7FA1008D5D32 /* TimerView.swift */; };
 		454ABD6725CAA28C008D5D32 /* UITimerEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6625CAA28C008D5D32 /* UITimerEnums.swift */; };
+		454ABD6D25CACD53008D5D32 /* UITimerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6C25CACD53008D5D32 /* UITimerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		454ABD5925C962A8008D5D32 /* UITimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimer.swift; sourceTree = "<group>"; };
 		454ABD6225CA7FA1008D5D32 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		454ABD6625CAA28C008D5D32 /* UITimerEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITimerEnums.swift; sourceTree = "<group>"; };
+		454ABD6C25CACD53008D5D32 /* UITimerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITimerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				454ABD2825C96244008D5D32 /* UITimer.h */,
 				454ABD5925C962A8008D5D32 /* UITimer.swift */,
+				454ABD6C25CACD53008D5D32 /* UITimerDelegate.swift */,
 				454ABD6625CAA28C008D5D32 /* UITimerEnums.swift */,
 				454ABD6225CA7FA1008D5D32 /* TimerView.swift */,
 				454ABD2925C96244008D5D32 /* Info.plist */,
@@ -144,6 +147,7 @@
 			files = (
 				454ABD6725CAA28C008D5D32 /* UITimerEnums.swift in Sources */,
 				454ABD6325CA7FA1008D5D32 /* TimerView.swift in Sources */,
+				454ABD6D25CACD53008D5D32 /* UITimerDelegate.swift in Sources */,
 				454ABD5A25C962A8008D5D32 /* UITimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

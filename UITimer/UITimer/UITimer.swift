@@ -10,6 +10,9 @@ import UIKit
 
 open class UITimer: UIView {
     
+    open var delegate: UITimerDelegate?
+    
+    /// Decides what type of countdown to show.
     open var type: UITimerType = .singleField {
         didSet {
             switch self.type {
@@ -24,6 +27,8 @@ open class UITimer: UIView {
     /// Sets the time to countdown from.
     open var countDown: Int = 1 {
         didSet {
+            timer = Timer(timeInterval: 1.0, target: self, selector: #selector(timerCalculation), userInfo: nil, repeats: true)
+            RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
             self.createTimerLabels()
             if self.type == .singleField {
                 self.configCountDownTimer(totalTime: countDown)
@@ -54,7 +59,12 @@ open class UITimer: UIView {
         }
     }
     
-    open func setBorder(width: CGFloat, color: UIColor, cornerRadius: CGFloat? = 10) {
+    /// Configures the layer of the countdown cells.
+    /// - Parameters:
+    ///   - width: Sets the border width.
+    ///   - color: Sets the border color.
+    ///   - cornerRadius: Sets the corner radius of cells
+    open func setBorder(width: CGFloat, color: UIColor = #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: CGFloat? = 10) {
         let count = self.labelArray.count - 1
         for i in 0...count {
             self.labelArray[i].layer.borderWidth = width
@@ -63,6 +73,7 @@ open class UITimer: UIView {
         }
     }
     
+    /// Sets the color of the text fields below the timer.
     open var textColor: UIColor = .black {
         didSet {
             for i in 0...3 {
@@ -72,9 +83,14 @@ open class UITimer: UIView {
         }
     }
     
-    fileprivate var timer = Timer()
+    fileprivate var timer = Timer() {
+        didSet {
+            oldValue.invalidate()
+        }
+    }
     fileprivate var labelArray: [TimerView] = []
-    fileprivate var titles: [String] = ["Days", "Hours", "Minutes", "Seconds"] {
+    /// An array of 4 strings which sets the titles below the timer.
+    open var titles: [String] = ["Days", "Hours", "Minutes", "Seconds"] {
         didSet {
             for i in 0...3 {
                 let label = titlesStackView.arrangedSubviews[i] as! UILabel
@@ -106,8 +122,6 @@ open class UITimer: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createUI()
-        timer = Timer(timeInterval: 1.0, target: self, selector: #selector(timerCalculation), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
     }
     
     required public init?(coder: NSCoder) {
@@ -145,7 +159,6 @@ open class UITimer: UIView {
             label.text = titles[i]
             label.font = .systemFont(ofSize: 12)
             label.textAlignment = .center
-//            label.configure(text: "\(titles[i])", fontSize: 14, textColor: .init(hex: "333333"), textAlignment: .center, fontType: .regular)
             titlesStackView.addArrangedSubview(label)
         }
     }
@@ -489,6 +502,7 @@ open class UITimer: UIView {
     
     fileprivate func createTimerLabels() {
         self.labelArray = []
+        self.timerStackView.removeAllArrangedSubviews()
         if type == .singleField {
             for _ in 0...3 {
                 let label = TimerView()
@@ -519,6 +533,10 @@ open class UITimer: UIView {
         } else {
             self.configDoubleDigitCountDownTimer(totalTime: temp - 1)
         }
+        if self.temp == 1 {
+            self.delegate?.countDownFinished()
+            self.timer.invalidate()
+        }
         self.temp -= 1
     }
     
@@ -530,8 +548,13 @@ open class UITimer: UIView {
     }
 }
 
+extension UITimer: UITimerDelegate {
+    public func countDownFinished() {
+        //finished
+    }
+}
 
-extension String {
+private extension String {
     func convertEngNumToPersianNum() -> String {
         let numbersDictionary : Dictionary = ["0" : "۰","1" : "۱", "2" : "۲", "3" : "۳", "4" : "۴", "5" : "۵", "6" : "۶", "7" : "۷", "8" : "۸", "9" : "۹"]
         var str : String = self
@@ -541,5 +564,22 @@ extension String {
         }
         
         return str
+    }
+}
+
+private extension UIStackView {
+    /// Removes all arranged subviews within a StackView.
+    func removeAllArrangedSubviews() {
+        
+        let removedSubviews = arrangedSubviews.reduce([]) { (allSubviews, subview) -> [UIView] in
+            self.removeArrangedSubview(subview)
+            return allSubviews + [subview]
+        }
+        
+        // Deactivate all constraints
+        NSLayoutConstraint.deactivate(removedSubviews.flatMap({ $0.constraints }))
+        
+        // Remove the views from self
+        removedSubviews.forEach({ $0.removeFromSuperview() })
     }
 }
