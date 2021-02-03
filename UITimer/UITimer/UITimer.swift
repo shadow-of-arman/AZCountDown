@@ -121,23 +121,55 @@ open class UITimer: UIView {
         let convertedTime = secondsToDaysHoursMinutesSeconds(seconds: totalTime)
         if self.convertToPersian == true {
             if labelArray[0].timeString != String(convertedTime.0).convertEngNumToPersianNum() {
-                UIView.transition(with: labelArray[0], duration: 0.6, options: .transitionFlipFromBottom) {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+                    self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[0].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
+                    self.labelArray[0].timeLabel.alpha = 0.1
+                } completion: { (_) in
                     self.labelArray[0].timeString = String(convertedTime.0).convertEngNumToPersianNum()
+                    self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[0].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                        self.labelArray[0].timeLabel.transform = .identity
+                        self.labelArray[0].timeLabel.alpha = 1
+                    }
                 }
             }
             if labelArray[1].timeString != String(convertedTime.1).convertEngNumToPersianNum() {
-                UIView.transition(with: labelArray[1], duration: 0.6, options: .transitionFlipFromBottom) {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+                    self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[1].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
+                    self.labelArray[1].timeLabel.alpha = 0.1
+                } completion: { (_) in
                     self.labelArray[1].timeString = String(convertedTime.1).convertEngNumToPersianNum()
+                    self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[1].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                        self.labelArray[1].timeLabel.transform = .identity
+                        self.labelArray[1].timeLabel.alpha = 1
+                    }
                 }
             }
             if labelArray[2].timeString != String(convertedTime.2).convertEngNumToPersianNum() {
-                UIView.transition(with: labelArray[2], duration: 0.6, options: .transitionFlipFromBottom) {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+                    self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[2].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
+                    self.labelArray[2].timeLabel.alpha = 0.1
+                } completion: { (_) in
                     self.labelArray[2].timeString = String(convertedTime.2).convertEngNumToPersianNum()
+                    self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[2].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                        self.labelArray[2].timeLabel.transform = .identity
+                        self.labelArray[2].timeLabel.alpha = 1
+                    }
                 }
             }
             if labelArray[3].timeString != String(convertedTime.3).convertEngNumToPersianNum() {
-                UIView.transition(with: labelArray[3], duration: 0.6, options: .transitionFlipFromBottom) {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseIn) {
+                    self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[3].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
+                    self.labelArray[3].timeLabel.alpha = 0.1
+                } completion: { (_) in
                     self.labelArray[3].timeString = String(convertedTime.3).convertEngNumToPersianNum()
+                    self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[3].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
+                    UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseOut) {
+                        self.labelArray[3].timeLabel.transform = .identity
+                        self.labelArray[3].timeLabel.alpha = 1
+                    }
                 }
             }
         } else {
@@ -180,7 +212,6 @@ open class UITimer: UIView {
         for _ in 0...3 {
             let label = TimerView()
 //            label.configure(text: "", fontSize: 17, textColor: .white, textAlignment: .center, fontType: .yekan_bold)
-//            label.backgroundColor = .init(hex: "00ACAD")
             self.labelArray.append(label)
         }
         self.labelArray.forEach { (label) in
