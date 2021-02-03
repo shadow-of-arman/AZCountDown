@@ -10,6 +10,17 @@ import UIKit
 
 open class UITimer: UIView {
     
+    open var type: UITimerType = .singleField {
+        didSet {
+            switch self.type {
+            case .singleField:
+                self.timerStackView.spacing = 15
+            case .doubleField:
+                self.timerStackView.spacing = 5
+            }
+        }
+    }
+    
     /// Sets the time to countdown from.
     open var countDown: Int = 1 {
         didSet {
@@ -39,12 +50,12 @@ open class UITimer: UIView {
         }
     }
     
-    open func setBorder(width: CGFloat, color: UIColor, cornerRadius: CGFloat) {
+    open func setBorder(width: CGFloat, color: UIColor, cornerRadius: CGFloat? = 10) {
         let count = self.labelArray.count - 1
         for i in 0...count {
             self.labelArray[i].layer.borderWidth = width
             self.labelArray[i].layer.borderColor = color.cgColor
-            self.labelArray[i].layer.cornerRadius = cornerRadius
+            self.labelArray[i].layer.cornerRadius = cornerRadius!
         }
     }
     
@@ -128,7 +139,7 @@ open class UITimer: UIView {
         for i in 0...3 {
             let label = UILabel()
             label.text = titles[i]
-            label.font = .systemFont(ofSize: 15)
+            label.font = .systemFont(ofSize: 12)
             label.textAlignment = .center
 //            label.configure(text: "\(titles[i])", fontSize: 14, textColor: .init(hex: "333333"), textAlignment: .center, fontType: .regular)
             titlesStackView.addArrangedSubview(label)
@@ -259,14 +270,27 @@ open class UITimer: UIView {
     
     fileprivate func createTimerLabels() {
         self.labelArray = []
-        for _ in 0...3 {
-            let label = TimerView()
-//            label.configure(text: "", fontSize: 17, textColor: .white, textAlignment: .center, fontType: .yekan_bold)
-            self.labelArray.append(label)
+        if type == .singleField {
+            for _ in 0...3 {
+                let label = TimerView()
+                self.labelArray.append(label)
+            }
+        } else {
+            for _ in 0...7 {
+                let label = TimerView()
+                self.labelArray.append(label)
+            }
         }
         self.labelArray.forEach { (label) in
             label.timeString = label.timeString.convertEngNumToPersianNum()
             self.timerStackView.addArrangedSubview(label)
+            if self.type == .doubleField {
+                for i in 0...7 {
+                    if i % 2 != 0 {
+                        self.timerStackView.setCustomSpacing(15, after: labelArray[i])
+                    }
+                }                
+            }
         }
     }
     

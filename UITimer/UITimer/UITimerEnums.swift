@@ -8,7 +8,7 @@
 import Foundation
 
 /// Decides the type of  UITimer
-enum UITimerType {
+public enum UITimerType {
     case singleField
     case doubleField
 }

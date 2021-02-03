@@ -25,9 +25,10 @@ class ViewController: UIViewController {
     //all config
     fileprivate func allConfig() {
 //        self.timer.convertToPersian = true
+        self.timer.type = .doubleField
         self.timer.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
         self.timer.countdownFrom(days: 3, hours: 17, minutes: 46, seconds: 50)
-        self.timer.setBorder(width: 1.5, color: #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: 10)
+        self.timer.setBorder(width: 1.5, color: #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: 5)
         self.view.addSubview(self.timer)
         self.timer.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint(item: self.timer, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
