@@ -10,7 +10,7 @@ import UITimer
 
 class ViewController: UIViewController {
 
-    let timer = TimerView()
+    let timer = UITimer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
