@@ -37,6 +37,8 @@ open class UITimer: UIView {
             } else {
                 self.configDoubleDigitCountDownTimer(totalTime: countDown)
             }
+            self.checkIfDaysExist()
+            self.checkIfHoursExist()
             temp = countDown
         }
     }
@@ -119,6 +121,46 @@ open class UITimer: UIView {
         return stackView
     }()
     
+//MARK: - checkes
+    //days
+    fileprivate func checkIfDaysExist() {
+        if self.countDown < 86400 {
+            if self.type == .doubleField {
+                self.titlesStackView.arrangedSubviews[0].isHidden = true
+                self.timerStackView.arrangedSubviews[0].isHidden = true
+                self.timerStackView.arrangedSubviews[1].isHidden = true
+                if self.setColonSeparators {
+                    self.timerStackView.arrangedSubviews[2].isHidden = true
+                }
+            } else {
+                self.titlesStackView.arrangedSubviews[0].isHidden = true
+                self.timerStackView.arrangedSubviews[0].isHidden = true
+                if self.setColonSeparators {
+                    self.timerStackView.arrangedSubviews[1].isHidden = true
+                }
+            }
+        }
+    }
+    
+    //hours
+    fileprivate func checkIfHoursExist() {
+        if self.countDown < 3600 {
+            if self.type == .doubleField {
+                self.titlesStackView.arrangedSubviews[1].isHidden = true
+                self.timerStackView.arrangedSubviews[3].isHidden = true
+                self.timerStackView.arrangedSubviews[4].isHidden = true
+                if self.setColonSeparators {
+                    self.timerStackView.arrangedSubviews[5].isHidden = true
+                }
+            } else {
+                self.titlesStackView.arrangedSubviews[1].isHidden = true
+                self.timerStackView.arrangedSubviews[1].isHidden = true
+                if self.setColonSeparators {
+                    self.timerStackView.arrangedSubviews[2].isHidden = true
+                }
+            }
+        }
+    }
     
     //MARK: - DEFAULT INITIALIZE
     override init(frame: CGRect) {
