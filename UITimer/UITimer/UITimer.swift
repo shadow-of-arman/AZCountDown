@@ -19,10 +19,12 @@ open class UITimer: UIView {
             case .singleField:
                 self.timerStackView.spacing = 15
             case .doubleField:
-                self.timerStackView.spacing = 5
+                self.timerStackView.spacing = 3
             }
         }
     }
+    
+    open var setColonSeparators = false
     
     /// Sets the time to countdown from.
     open var countDown: Int = 1 {
@@ -517,12 +519,23 @@ open class UITimer: UIView {
         self.labelArray.forEach { (label) in
             label.timeString = label.timeString.convertEngNumToPersianNum()
             self.timerStackView.addArrangedSubview(label)
-            if self.type == .doubleField {
-                for i in 0...7 {
-                    if i % 2 != 0 {
+        }
+        if self.type == .doubleField {
+            for i in 0...6 {
+                if i % 2 != 0 {
+                    if self.setColonSeparators {
+                        let separator = UILabel()
+                        separator.text = ":"
+                        separator.textAlignment = .center
+                        separator.font = .boldSystemFont(ofSize: 25)
+                        separator.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
+                        self.timerStackView.insertArrangedSubview(separator, at: (i + 1 + (i / 2)))
+                        self.timerStackView.setCustomSpacing(-5, after: separator)
+                        self.timerStackView.setCustomSpacing(-5, after: labelArray[i])
+                    } else {
                         self.timerStackView.setCustomSpacing(15, after: labelArray[i])
                     }
-                }                
+                }
             }
         }
     }

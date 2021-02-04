@@ -25,6 +25,7 @@ class ViewController: UIViewController {
     //all config
     fileprivate func allConfig() {
         self.timer.delegate = self
+        self.timer.setColonSeparators = true
         self.timer.convertToPersian = true
         self.timer.type = .doubleField
         self.timer.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
@@ -42,7 +43,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITimerDelegate {
     func secondsRemaining(seconds: Int) {
-        print(seconds)
+//        print(seconds)
     }
     
     func countDownFinished() {
