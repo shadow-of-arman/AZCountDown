@@ -86,7 +86,7 @@ class ViewController: UIViewController {
         self.timer4.setColonSeparators = true
         self.timer4.type = .singleField
         self.timer4.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
-        self.timer4.countdownFrom(days: 2, hours: 16, minutes: 32, seconds: 12)
+        self.timer4.countdownFrom(days: 7, hours: 6, minutes: 4, seconds: 34)
         self.timer4.setBorder(width: 1, color: #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: 5)
         self.view.addSubview(self.timer4)
         self.timer4.translatesAutoresizingMaskIntoConstraints = false

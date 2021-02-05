@@ -592,8 +592,8 @@ open class UITimer: UIView {
                     separator.font = .boldSystemFont(ofSize: 25)
                     separator.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
                     self.timerStackView.insertArrangedSubview(separator, at: (2 * i + 1))
-                    self.timerStackView.setCustomSpacing(-15, after: separator)
-                    self.timerStackView.setCustomSpacing(-15, after: labelArray[i])
+                    self.timerStackView.setCustomSpacing(-20, after: separator)
+                    self.timerStackView.setCustomSpacing(-20, after: labelArray[i])
                 }
             }
         }
