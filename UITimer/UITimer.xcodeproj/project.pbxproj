@@ -14,6 +14,16 @@
 		454ABD6D25CACD53008D5D32 /* UITimerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6C25CACD53008D5D32 /* UITimerDelegate.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		45ABDE6F25CD975C001EF138 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454ABD5125C96287008D5D32 /* Example.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 454ABD3A25C96281008D5D32;
+			remoteInfo = Example;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		454ABD2525C96244008D5D32 /* UITimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UITimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		454ABD2825C96244008D5D32 /* UITimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITimer.h; sourceTree = "<group>"; };
@@ -64,6 +74,14 @@
 				454ABD2925C96244008D5D32 /* Info.plist */,
 			);
 			path = UITimer;
+			sourceTree = "<group>";
+		};
+		45ABDE6C25CD9745001EF138 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				45ABDE7025CD975C001EF138 /* Example.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,12 +141,28 @@
 			mainGroup = 454ABD1B25C96244008D5D32;
 			productRefGroup = 454ABD2625C96244008D5D32 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 45ABDE6C25CD9745001EF138 /* Products */;
+					ProjectRef = 454ABD5125C96287008D5D32 /* Example.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				454ABD2425C96244008D5D32 /* UITimer */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		45ABDE7025CD975C001EF138 /* Example.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = Example.app;
+			remoteRef = 45ABDE6F25CD975C001EF138 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		454ABD2325C96244008D5D32 /* Resources */ = {

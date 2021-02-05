@@ -24,12 +24,16 @@ open class UITimer: UIView {
         }
     }
     
+    /// Sets colons to separate seconds from minutes from hours from days. 
     open var setColonSeparators = false
+    
+    /// Sets the time interval which the count down must obey. Must be set before countdown.
+    open var timeInterval: Double = 1.0 
     
     /// Sets the time to countdown from.
     open var countDown: Int = 1 {
         didSet {
-            timer = Timer(timeInterval: 1.0, target: self, selector: #selector(timerCalculation), userInfo: nil, repeats: true)
+            timer = Timer(timeInterval: self.timeInterval, target: self, selector: #selector(timerCalculation), userInfo: nil, repeats: true)
             RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
             self.createTimerLabels()
             if self.type == .singleField {
@@ -577,6 +581,19 @@ open class UITimer: UIView {
                     } else {
                         self.timerStackView.setCustomSpacing(15, after: labelArray[i])
                     }
+                }
+            }
+        } else {
+            for i in 0...2 {
+                if self.setColonSeparators {
+                    let separator = UILabel()
+                    separator.text = ":"
+                    separator.textAlignment = .center
+                    separator.font = .boldSystemFont(ofSize: 25)
+                    separator.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
+                    self.timerStackView.insertArrangedSubview(separator, at: (2 * i + 1))
+                    self.timerStackView.setCustomSpacing(-15, after: separator)
+                    self.timerStackView.setCustomSpacing(-15, after: labelArray[i])
                 }
             }
         }
