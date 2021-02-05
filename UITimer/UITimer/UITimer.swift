@@ -212,55 +212,56 @@ open class UITimer: UIView {
     }
     
     fileprivate func configCountDownTimer(totalTime: Int) {
+        let animationDuration = (self.timeInterval * 2) / 10
         let convertedTime = secondsToDaysHoursMinutesSeconds(seconds: totalTime)
         if self.convertToPersian == true {
             if labelArray[0].timeString != String(convertedTime.0).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[0].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[0].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[0].timeString = String(convertedTime.0).convertEngNumToPersianNum()
                     self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[0].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[0].timeLabel.transform = .identity
                         self.labelArray[0].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[1].timeString != String(convertedTime.1).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[1].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[1].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[1].timeString = String(convertedTime.1).convertEngNumToPersianNum()
                     self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[1].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[1].timeLabel.transform = .identity
                         self.labelArray[1].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[2].timeString != String(convertedTime.2).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[2].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[2].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[2].timeString = String(convertedTime.2).convertEngNumToPersianNum()
                     self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[2].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[2].timeLabel.transform = .identity
                         self.labelArray[2].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[3].timeString != String(convertedTime.3).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[3].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[3].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[3].timeString = String(convertedTime.3).convertEngNumToPersianNum()
                     self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[3].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[3].timeLabel.transform = .identity
                         self.labelArray[3].timeLabel.alpha = 1
                     }
@@ -268,52 +269,52 @@ open class UITimer: UIView {
             }
         } else {
             if labelArray[0].timeString != String(convertedTime.0) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[0].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[0].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[0].timeString = String(convertedTime.0)
                     self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[0].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[0].timeLabel.transform = .identity
                         self.labelArray[0].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[1].timeString != String(convertedTime.1) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[1].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[1].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[1].timeString = String(convertedTime.1)
                     self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[1].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[1].timeLabel.transform = .identity
                         self.labelArray[1].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[2].timeString != String(convertedTime.2) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[2].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[2].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[2].timeString = String(convertedTime.2)
                     self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[2].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[2].timeLabel.transform = .identity
                         self.labelArray[2].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[3].timeString != String(convertedTime.3) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[3].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[3].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[3].timeString = String(convertedTime.3)
                     self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[3].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[3].timeLabel.transform = .identity
                         self.labelArray[3].timeLabel.alpha = 1
                     }
@@ -323,107 +324,108 @@ open class UITimer: UIView {
     }
     
     fileprivate func configDoubleDigitCountDownTimer(totalTime: Int) {
+        let animationDuration = (self.timeInterval * 2) / 10
         let convertedTime = secondsToDaysHoursMinutesSeconds(seconds: totalTime)
         if self.convertToPersian == true {
             if labelArray[0].timeString != String(convertedTime.0 / 10).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[0].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[0].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[0].timeString = String(convertedTime.0 / 10).convertEngNumToPersianNum()
                     self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[0].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[0].timeLabel.transform = .identity
                         self.labelArray[0].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[1].timeString != String(convertedTime.0 % 10).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[1].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[1].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[1].timeString = String(convertedTime.0 % 10).convertEngNumToPersianNum()
                     self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[1].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[1].timeLabel.transform = .identity
                         self.labelArray[1].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[2].timeString != String(convertedTime.1 / 10).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[2].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[2].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[2].timeString = String(convertedTime.1 / 10).convertEngNumToPersianNum()
                     self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[2].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[2].timeLabel.transform = .identity
                         self.labelArray[2].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[3].timeString != String(convertedTime.1 % 10).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[3].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[3].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[3].timeString = String(convertedTime.1 % 10).convertEngNumToPersianNum()
                     self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[3].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[3].timeLabel.transform = .identity
                         self.labelArray[3].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[4].timeString != String(convertedTime.2 / 10).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[4].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[4].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[4].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[4].timeString = String(convertedTime.2 / 10).convertEngNumToPersianNum()
                     self.labelArray[4].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[4].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[4].timeLabel.transform = .identity
                         self.labelArray[4].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[5].timeString != String(convertedTime.2 % 10).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[5].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[5].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[5].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[5].timeString = String(convertedTime.2 % 10).convertEngNumToPersianNum()
                     self.labelArray[5].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[5].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[5].timeLabel.transform = .identity
                         self.labelArray[5].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[6].timeString != String(convertedTime.3 / 10).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[6].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[6].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[6].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[6].timeString = String(convertedTime.3 / 10).convertEngNumToPersianNum()
                     self.labelArray[6].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[6].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[6].timeLabel.transform = .identity
                         self.labelArray[6].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[7].timeString != String(convertedTime.3 % 10).convertEngNumToPersianNum() {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[7].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[7].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[7].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[7].timeString = String(convertedTime.3 % 10).convertEngNumToPersianNum()
                     self.labelArray[7].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[7].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[7].timeLabel.transform = .identity
                         self.labelArray[7].timeLabel.alpha = 1
                     }
@@ -431,104 +433,104 @@ open class UITimer: UIView {
             }
         } else {
             if labelArray[0].timeString != String(convertedTime.0 / 10) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[0].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[0].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[0].timeString = String(convertedTime.0 / 10)
                     self.labelArray[0].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[0].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[0].timeLabel.transform = .identity
                         self.labelArray[0].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[1].timeString != String(convertedTime.0 % 10) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[1].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[1].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[1].timeString = String(convertedTime.0 % 10)
                     self.labelArray[1].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[1].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[1].timeLabel.transform = .identity
                         self.labelArray[1].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[2].timeString != String(convertedTime.1 / 10) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[2].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[2].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[2].timeString = String(convertedTime.1 / 10)
                     self.labelArray[2].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[2].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[2].timeLabel.transform = .identity
                         self.labelArray[2].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[3].timeString != String(convertedTime.1 % 10) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[3].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[3].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[3].timeString = String(convertedTime.1 % 10)
                     self.labelArray[3].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[3].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[3].timeLabel.transform = .identity
                         self.labelArray[3].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[4].timeString != String(convertedTime.2 / 10) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[4].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[4].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[4].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[4].timeString = String(convertedTime.2 / 10)
                     self.labelArray[4].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[4].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[4].timeLabel.transform = .identity
                         self.labelArray[4].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[5].timeString != String(convertedTime.2 % 10) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[5].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[5].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[5].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[5].timeString = String(convertedTime.2 % 10)
                     self.labelArray[5].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[5].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[5].timeLabel.transform = .identity
                         self.labelArray[5].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[6].timeString != String(convertedTime.3 / 10) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[6].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[6].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[6].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[6].timeString = String(convertedTime.3 / 10)
                     self.labelArray[6].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[6].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[6].timeLabel.transform = .identity
                         self.labelArray[6].timeLabel.alpha = 1
                     }
                 }
             }
             if labelArray[7].timeString != String(convertedTime.3 % 10) {
-                UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut) {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseOut) {
                     self.labelArray[7].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: self.labelArray[7].bounds.height / 2 + 5).scaledBy(x: 0.7, y: 0.7)
                     self.labelArray[7].timeLabel.alpha = 0.1
                 } completion: { (_) in
                     self.labelArray[7].timeString = String(convertedTime.3 % 10)
                     self.labelArray[7].timeLabel.transform = CGAffineTransform.identity.translatedBy(x: 0, y: -self.labelArray[7].bounds.height / 2 - 10).scaledBy(x: 0.7, y: 0.7)
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                    UIView.animate(withDuration: animationDuration, delay: 0, options: .curveEaseInOut) {
                         self.labelArray[7].timeLabel.transform = .identity
                         self.labelArray[7].timeLabel.alpha = 1
                     }

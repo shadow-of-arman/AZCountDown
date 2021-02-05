@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         self.timer2.setColonSeparators = true
         self.timer2.type = .doubleField
         self.timer2.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
-//        self.timer.timeInterval = 0.5
+//        self.timer2.timeInterval = 0.5
         self.timer2.countdownFrom(days: 0, hours: 18, minutes: 46, seconds: 50)
         self.timer2.setBorder(width: 1, color: #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: 5)
         self.view.addSubview(self.timer2)
