@@ -8,6 +8,12 @@ A customizable countdown view for Swift 🚀
 ## Preview
 ![](Example.gif)
 
+### Features
+- [x] Easy to implement.
+- [x] Highly customizable.
+- [x] Smooth animations.
+- [x] Persian or Arabic numbers support.
+
 
 ## License
 
