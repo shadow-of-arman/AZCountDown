@@ -1,24 +1,25 @@
 //
-//  UITimer.swift
-//  UITimer
+//  UICountDown.swift
+//  UICountDown
 //
-//  Created by soroush Amini Araste on 10/5/20.
-//  Copyright © 2020 soroush Amini Araste. All rights reserved.
+//  Created by soroush Amini Araste in collaboration with Arman Zoghi on 10/5/20.
+
+//  Copyright © 2020 soroush Amini Araste, Arman Zoghi. All rights reserved.
 //
 
 import UIKit
 
-open class UITimer: UIView {
+open class UICountDown: UIView {
     
-    open var delegate: UITimerDelegate?
+    open var delegate: UICountDownDelegate?
     
     /// Decides what type of countdown to show.
-    open var type: UITimerType = .singleField {
+    open var type: UICountDownType = .singleDigit {
         didSet {
             switch self.type {
-            case .singleField:
+            case .singleDigit:
                 self.timerStackView.spacing = 15
-            case .doubleField:
+            case .doubleDigit:
                 self.timerStackView.spacing = 3
             }
         }
@@ -48,19 +49,19 @@ open class UITimer: UIView {
     open var timeInterval: Double = 1.0 
     
     /// Sets the time to countdown from.
-    open var countDown: Int = 1 {
+    open var countDownFrom: Int = 1 {
         didSet {
             timer = Timer(timeInterval: self.timeInterval, target: self, selector: #selector(timerCalculation), userInfo: nil, repeats: true)
             RunLoop.main.add(timer, forMode: RunLoop.Mode.common)
             self.createTimerLabels()
-            if self.type == .singleField {
-                self.configCountDownTimer(totalTime: countDown)
+            if self.type == .singleDigit {
+                self.configCountDownTimer(totalTime: countDownFrom)
             } else {
-                self.configDoubleDigitCountDownTimer(totalTime: countDown)
+                self.configDoubleDigitCountDownTimer(totalTime: countDownFrom)
             }
             self.checkIfDaysExist()
             self.checkIfHoursExist()
-            temp = countDown
+            temp = countDownFrom
         }
     }
     
@@ -72,7 +73,7 @@ open class UITimer: UIView {
     ///   - seconds: Seconds left.
     open func countdownFrom(days: Int, hours: Int, minutes: Int, seconds: Int) {
         let time = seconds + (minutes * 60) + (hours * 3600) + (days * 86400)
-        self.countDown = time
+        self.countDownFrom = time
     }
     
     /// Converts the countdown numbers shown to Persian.
@@ -112,7 +113,7 @@ open class UITimer: UIView {
     ///   - cornerRadius: Sets the corner radius of each timer cell.
     ///   - titleColor: Sets the color of the titles below the timer.
     ///   - colonColor: Sets the color of the separator colons.
-    open func customize(type: UITimerType? = .doubleField, backgroundColor: UIColor? = #colorLiteral(red: 0.9322072864, green: 0.8707377911, blue: 0.9809352756, alpha: 1), numberColor: UIColor? = #colorLiteral(red: 0.5561129451, green: 0.1538559794, blue: 0.629018724, alpha: 1), font: UIFont? = .systemFont(ofSize: 15), borderWidth: CGFloat? = 0, borderColor: UIColor? = #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: CGFloat? = 10, titleColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1), titleFont: UIFont? = .systemFont(ofSize: 12), colonColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)) {
+    open func customize(type: UICountDownType? = .doubleDigit, backgroundColor: UIColor? = #colorLiteral(red: 0.9322072864, green: 0.8707377911, blue: 0.9809352756, alpha: 1), numberColor: UIColor? = #colorLiteral(red: 0.5561129451, green: 0.1538559794, blue: 0.629018724, alpha: 1), font: UIFont? = .systemFont(ofSize: 15), borderWidth: CGFloat? = 0, borderColor: UIColor? = #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: CGFloat? = 10, titleColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1), titleFont: UIFont? = .systemFont(ofSize: 12), colonColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)) {
         self.type = type!
         self.cellBackgroundColor = backgroundColor!
         self.cellNumberColor = numberColor!
@@ -121,7 +122,7 @@ open class UITimer: UIView {
         self.cellBorderColor = borderColor
         self.cellCornerRadius = cornerRadius
         if self.labelArray == [] {
-            self.countDown = 10000
+            self.countDownFrom = 10000
         }
         let count = self.labelArray.count - 1
         for i in 0...count {
@@ -169,7 +170,7 @@ open class UITimer: UIView {
             oldValue.invalidate()
         }
     }
-    fileprivate var labelArray: [TimerView] = []
+    fileprivate var labelArray: [CountDownView] = []
     /// An array of 4 strings which sets the titles below the timer.
     open var titles: [String] = ["Days", "Hours", "Minutes", "Seconds"] {
         didSet {
@@ -202,8 +203,8 @@ open class UITimer: UIView {
 //MARK: - checkes
     //days
     fileprivate func checkIfDaysExist() {
-        if self.countDown < 86400 {
-            if self.type == .doubleField {
+        if self.countDownFrom < 86400 {
+            if self.type == .doubleDigit {
                 self.titlesStackView.arrangedSubviews[0].isHidden = true
                 self.timerStackView.arrangedSubviews[0].isHidden = true
                 self.timerStackView.arrangedSubviews[1].isHidden = true
@@ -222,8 +223,8 @@ open class UITimer: UIView {
     
     //hours
     fileprivate func checkIfHoursExist() {
-        if self.countDown < 3600 {
-            if self.type == .doubleField {
+        if self.countDownFrom < 3600 {
+            if self.type == .doubleDigit {
                 self.titlesStackView.arrangedSubviews[1].isHidden = true
                 self.timerStackView.arrangedSubviews[3].isHidden = true
                 self.timerStackView.arrangedSubviews[4].isHidden = true
@@ -250,7 +251,7 @@ open class UITimer: UIView {
         super.init(coder: coder)
     }
     
-    public init(Interval: Double? = 1.0, Type: UITimerType? = .doubleField, FromTime: Int, SetColonSeparators: Bool? = true, TextColor: UIColor? = .white) {
+    public init(Interval: Double? = 1.0, Type: UICountDownType? = .doubleDigit, FromTime: Int, SetColonSeparators: Bool? = true, TextColor: UIColor? = .white) {
         super.init(frame: .zero)
         
     }
@@ -632,9 +633,9 @@ open class UITimer: UIView {
     fileprivate func createTimerLabels() {
         self.labelArray = []
         self.timerStackView.removeAllArrangedSubviews()
-        if type == .singleField {
+        if type == .singleDigit {
             for _ in 0...3 {
-                let label = TimerView()
+                let label = CountDownView()
                 label.backgroundColor = self.cellBackgroundColor
                 label.color = self.cellNumberColor
                 label.font = self.cellFont
@@ -645,7 +646,7 @@ open class UITimer: UIView {
             }
         } else {
             for _ in 0...7 {
-                let label = TimerView()
+                let label = CountDownView()
                 label.backgroundColor = self.cellBackgroundColor
                 label.color = self.cellNumberColor
                 label.font = self.cellFont
@@ -659,7 +660,7 @@ open class UITimer: UIView {
             label.timeString = label.timeString.convertEngNumToPersianNum()
             self.timerStackView.addArrangedSubview(label)
         }
-        if self.type == .doubleField {
+        if self.type == .doubleDigit {
             for i in 0...6 {
                 if i % 2 != 0 {
                     if self.setColonSeparators {
@@ -695,7 +696,7 @@ open class UITimer: UIView {
     }
     
     @objc func timerCalculation() {
-        if self.type == .singleField {
+        if self.type == .singleDigit {
             self.configCountDownTimer(totalTime: temp - 1)
         } else {
             self.configDoubleDigitCountDownTimer(totalTime: temp - 1)
@@ -709,7 +710,7 @@ open class UITimer: UIView {
     }
 }
 
-extension UITimer: UITimerDelegate {
+extension UICountDown: UICountDownDelegate {
     public func secondsRemaining(seconds: Int) {
         //seconds remaining.
     }

@@ -1,6 +1,6 @@
 //
-//  TimerView.swift
-//  UITimer
+//  CountDownView.swift
+//  CountDownView
 //
 //  Created by Arman Zoghi on 2/3/21.
 //
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TimerView: UIView {
+class CountDownView: UIView {
     
     /// The label inside the view that is responsible for showing the time string.
     let timeLabel = UILabel()
@@ -34,7 +34,7 @@ class TimerView: UIView {
     }
     
 //MARK: - View LifeCycle
-    /// Initializes and returns a newly allocated TimerView object with the specified frame rectangle.
+    /// Initializes and returns a newly allocated CountDownView object with the specified frame rectangle.
     /// - Parameter frame: The frame rectangle for the view, measured in points. The origin of the frame is relative to the superview in which you plan to add it. This method uses the frame rectangle to set the `center` and `bounds` properties accordingly.
     override init(frame: CGRect) {
         super.init(frame: frame)

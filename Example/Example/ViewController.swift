@@ -10,11 +10,11 @@ import UITimer
 
 class ViewController: UIViewController {
 
-    let timer = UITimer()
-    let timer2 = UITimer()
-    let timer3 = UITimer()
-    let timer4 = UITimer()
-    let timer5 = UITimer()
+    let timer = UICountDown()
+    let timer2 = UICountDown()
+    let timer3 = UICountDown()
+    let timer4 = UICountDown()
+    let timer5 = UICountDown()
     let gradiant = CAGradientLayer()
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     fileprivate func example1() {
         self.timer.delegate = self
         self.timer.setColonSeparators = true
-        self.timer.type = .doubleField
+        self.timer.type = .doubleDigit
         self.timer.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
 //        self.timer.timeInterval = 0.5
         self.timer.countdownFrom(days: 3, hours: 17, minutes: 25, seconds: 33)
@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     fileprivate func example2() {
         self.timer2.delegate = self
         self.timer2.setColonSeparators = true
-        self.timer2.type = .doubleField
+        self.timer2.type = .doubleDigit
         self.timer2.customize(backgroundColor: .cyan, numberColor: .darkGray, font: .systemFont(ofSize: 17), borderWidth: 1, borderColor: .darkGray, cornerRadius: 5, titleColor: .cyan, colonColor: .cyan)
         self.timer2.countdownFrom(days: 0, hours: 18, minutes: 46, seconds: 50)
         self.view.addSubview(self.timer2)
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     fileprivate func example3() {
         self.timer3.delegate = self
         self.timer3.setColonSeparators = false
-        self.timer3.type = .doubleField
+        self.timer3.type = .doubleDigit
         self.timer3.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
         self.timer3.countdownFrom(days: 0, hours: 16, minutes: 32, seconds: 12)
         self.timer3.setBorder(width: 1, color: #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: 5)
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     fileprivate func example4() {
         self.timer4.delegate = self
         self.timer4.setColonSeparators = true
-        self.timer4.type = .singleField
+        self.timer4.type = .doubleDigit
         self.timer4.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
         self.timer4.countdownFrom(days: 7, hours: 6, minutes: 4, seconds: 34)
         self.timer4.setBorder(width: 1, color: #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: 5)
@@ -99,7 +99,7 @@ class ViewController: UIViewController {
         self.timer5.delegate = self
         self.timer5.setColonSeparators = true
         self.timer5.convertToPersian = true
-        self.timer5.type = .doubleField
+        self.timer5.type = .doubleDigit
         self.timer5.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
         self.timer5.countdownFrom(days: 0, hours: 16, minutes: 32, seconds: 12)
         self.timer5.setBorder(width: 1, color: #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: 5)
@@ -113,7 +113,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITimerDelegate {
+extension ViewController: UICountDownDelegate {
     func secondsRemaining(seconds: Int) {
 //        print(seconds)
     }

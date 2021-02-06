@@ -1,13 +1,13 @@
 //
-//  UITimerDelegate.swift
-//  UITimer
+//  UICountDownDelegate.swift
+//  CountDownView
 //
 //  Created by Arman Zoghi on 2/3/21.
 //
 
 import Foundation
 
-public protocol UITimerDelegate {
+public protocol UICountDownDelegate {
     func countDownFinished()
     func secondsRemaining(seconds: Int)
 }

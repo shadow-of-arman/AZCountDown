@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		454ABD2A25C96244008D5D32 /* UITimer.h in Headers */ = {isa = PBXBuildFile; fileRef = 454ABD2825C96244008D5D32 /* UITimer.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		454ABD5A25C962A8008D5D32 /* UITimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD5925C962A8008D5D32 /* UITimer.swift */; };
-		454ABD6325CA7FA1008D5D32 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6225CA7FA1008D5D32 /* TimerView.swift */; };
-		454ABD6725CAA28C008D5D32 /* UITimerEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6625CAA28C008D5D32 /* UITimerEnums.swift */; };
-		454ABD6D25CACD53008D5D32 /* UITimerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6C25CACD53008D5D32 /* UITimerDelegate.swift */; };
+		454ABD5A25C962A8008D5D32 /* UICountDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD5925C962A8008D5D32 /* UICountDown.swift */; };
+		454ABD6325CA7FA1008D5D32 /* CountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6225CA7FA1008D5D32 /* CountDownView.swift */; };
+		454ABD6725CAA28C008D5D32 /* UICountDownEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6625CAA28C008D5D32 /* UICountDownEnums.swift */; };
+		454ABD6D25CACD53008D5D32 /* UICountDownDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD6C25CACD53008D5D32 /* UICountDownDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,10 +29,10 @@
 		454ABD2825C96244008D5D32 /* UITimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UITimer.h; sourceTree = "<group>"; };
 		454ABD2925C96244008D5D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		454ABD5125C96287008D5D32 /* Example.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Example.xcodeproj; path = ../Example/Example.xcodeproj; sourceTree = "<group>"; };
-		454ABD5925C962A8008D5D32 /* UITimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITimer.swift; sourceTree = "<group>"; };
-		454ABD6225CA7FA1008D5D32 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
-		454ABD6625CAA28C008D5D32 /* UITimerEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITimerEnums.swift; sourceTree = "<group>"; };
-		454ABD6C25CACD53008D5D32 /* UITimerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITimerDelegate.swift; sourceTree = "<group>"; };
+		454ABD5925C962A8008D5D32 /* UICountDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICountDown.swift; sourceTree = "<group>"; };
+		454ABD6225CA7FA1008D5D32 /* CountDownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountDownView.swift; sourceTree = "<group>"; };
+		454ABD6625CAA28C008D5D32 /* UICountDownEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICountDownEnums.swift; sourceTree = "<group>"; };
+		454ABD6C25CACD53008D5D32 /* UICountDownDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICountDownDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,10 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				454ABD2825C96244008D5D32 /* UITimer.h */,
-				454ABD5925C962A8008D5D32 /* UITimer.swift */,
-				454ABD6225CA7FA1008D5D32 /* TimerView.swift */,
-				454ABD6C25CACD53008D5D32 /* UITimerDelegate.swift */,
-				454ABD6625CAA28C008D5D32 /* UITimerEnums.swift */,
+				454ABD5925C962A8008D5D32 /* UICountDown.swift */,
+				454ABD6225CA7FA1008D5D32 /* CountDownView.swift */,
+				454ABD6C25CACD53008D5D32 /* UICountDownDelegate.swift */,
+				454ABD6625CAA28C008D5D32 /* UICountDownEnums.swift */,
 				454ABD2925C96244008D5D32 /* Info.plist */,
 			);
 			path = UITimer;
@@ -179,10 +179,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				454ABD6725CAA28C008D5D32 /* UITimerEnums.swift in Sources */,
-				454ABD6325CA7FA1008D5D32 /* TimerView.swift in Sources */,
-				454ABD6D25CACD53008D5D32 /* UITimerDelegate.swift in Sources */,
-				454ABD5A25C962A8008D5D32 /* UITimer.swift in Sources */,
+				454ABD6725CAA28C008D5D32 /* UICountDownEnums.swift in Sources */,
+				454ABD6325CA7FA1008D5D32 /* CountDownView.swift in Sources */,
+				454ABD6D25CACD53008D5D32 /* UICountDownDelegate.swift in Sources */,
+				454ABD5A25C962A8008D5D32 /* UICountDown.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
