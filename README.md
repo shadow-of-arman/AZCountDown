@@ -1,4 +1,4 @@
 ![](Example.gif)
 
-# UITimer
-A Timer countdown view for Swift 🚀
+# AZCountDown
+A customizable countdown view for Swift 🚀
