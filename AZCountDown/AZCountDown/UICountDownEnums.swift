@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// Decides the type of  UITimer
+/// Decides the type of  UICountDown
 public enum UICountDownType {
     /// Shows the UICountDown in a single digit format in which both numbers of the value animate at the same time.
     case singleDigit
