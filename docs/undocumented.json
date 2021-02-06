@@ -1,0 +1,103 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDown.swift",
+      "line": 12,
+      "symbol": "UICountDown",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDown.swift",
+      "line": 14,
+      "symbol": "UICountDown.delegate",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDown.swift",
+      "line": 31,
+      "symbol": "UICountDown.colonColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDown.swift",
+      "line": 42,
+      "symbol": "UICountDown.hideTitles",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDown.swift",
+      "line": 250,
+      "symbol": "UICountDown.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDown.swift",
+      "line": 254,
+      "symbol": "UICountDown.init(Interval:Type:FromTime:SetColonSeparators:TextColor:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDown.swift",
+      "line": 713,
+      "symbol": "UICountDown",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDown.swift",
+      "line": 714,
+      "symbol": "UICountDown.secondsRemaining(seconds:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDown.swift",
+      "line": 718,
+      "symbol": "UICountDown.countDownFinished()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDownDelegate.swift",
+      "line": 10,
+      "symbol": "UICountDownDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDownDelegate.swift",
+      "line": 11,
+      "symbol": "UICountDownDelegate.countDownFinished()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDownDelegate.swift",
+      "line": 12,
+      "symbol": "UICountDownDelegate.secondsRemaining(seconds:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDownEnums.swift",
+      "line": 12,
+      "symbol": "UICountDownType.singleDigit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown/AZCountDown/UICountDownEnums.swift",
+      "line": 13,
+      "symbol": "UICountDownType.doubleDigit",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/armanzoghi/Developer folder/Component/AZCountDown/AZCountDown"
+}
