@@ -1,6 +1,6 @@
 //
 //  UICountDown.swift
-//  UICountDown
+//  AZCountDown
 //
 //  Created by soroush Amini Araste in collaboration with Arman Zoghi on 10/5/20.
 

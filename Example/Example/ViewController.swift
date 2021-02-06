@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import UITimer
+import AZCountDown
 
 class ViewController: UIViewController {
 

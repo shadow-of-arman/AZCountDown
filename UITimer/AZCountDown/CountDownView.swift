@@ -1,6 +1,6 @@
 //
 //  CountDownView.swift
-//  CountDownView
+//  AZCountDown
 //
 //  Created by Arman Zoghi on 2/3/21.
 //

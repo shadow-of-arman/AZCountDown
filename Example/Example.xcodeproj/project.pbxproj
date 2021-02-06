@@ -11,18 +11,18 @@
 		454ABD4225C96281008D5D32 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454ABD4125C96281008D5D32 /* ViewController.swift */; };
 		454ABD4725C96287008D5D32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454ABD4625C96287008D5D32 /* Assets.xcassets */; };
 		454ABD4A25C96287008D5D32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454ABD4825C96287008D5D32 /* LaunchScreen.storyboard */; };
-		454ABD5E25C962C9008D5D32 /* UITimer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 454ABD5D25C962C9008D5D32 /* UITimer.framework */; };
-		454ABD5F25C962C9008D5D32 /* UITimer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 454ABD5D25C962C9008D5D32 /* UITimer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		455DFA9C25CEAD3200E928CB /* AZCountDown.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 455DFA9B25CEAD3200E928CB /* AZCountDown.framework */; };
+		455DFA9D25CEAD3200E928CB /* AZCountDown.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 455DFA9B25CEAD3200E928CB /* AZCountDown.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		454ABD6025C962C9008D5D32 /* Embed Frameworks */ = {
+		455DFA9E25CEAD3200E928CB /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				454ABD5F25C962C9008D5D32 /* UITimer.framework in Embed Frameworks */,
+				455DFA9D25CEAD3200E928CB /* AZCountDown.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,6 +37,7 @@
 		454ABD4925C96287008D5D32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		454ABD4B25C96287008D5D32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		454ABD5D25C962C9008D5D32 /* UITimer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UITimer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		455DFA9B25CEAD3200E928CB /* AZCountDown.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AZCountDown.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				454ABD5E25C962C9008D5D32 /* UITimer.framework in Frameworks */,
+				455DFA9C25CEAD3200E928CB /* AZCountDown.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +84,7 @@
 		454ABD5C25C962C9008D5D32 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				455DFA9B25CEAD3200E928CB /* AZCountDown.framework */,
 				454ABD5D25C962C9008D5D32 /* UITimer.framework */,
 			);
 			name = Frameworks;
@@ -98,7 +100,7 @@
 				454ABD3625C96281008D5D32 /* Sources */,
 				454ABD3725C96281008D5D32 /* Frameworks */,
 				454ABD3825C96281008D5D32 /* Resources */,
-				454ABD6025C962C9008D5D32 /* Embed Frameworks */,
+				455DFA9E25CEAD3200E928CB /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
