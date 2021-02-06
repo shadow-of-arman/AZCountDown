@@ -176,6 +176,11 @@ open class UITimer: UIView {
         super.init(coder: coder)
     }
     
+    public init(Interval: Double? = 1.0, Type: UITimerType? = .doubleField, FromTime: Int, SetColonSeparators: Bool? = true, TextColor: UIColor? = .white) {
+        super.init(frame: .zero)
+        
+    }
+    
     //MARK: - INITIALIZE UI
     fileprivate func createUI() {
         self.addingTimerStackView()
