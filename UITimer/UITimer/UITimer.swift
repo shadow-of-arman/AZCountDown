@@ -27,7 +27,16 @@ open class UITimer: UIView {
     /// Sets colons to separate seconds from minutes from hours from days. 
     open var setColonSeparators = false
     
-    open var colonColor: UIColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
+    open var colonColor: UIColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1) {
+        didSet {
+            for label in self.timerStackView.arrangedSubviews {
+                if label.tag == 5 {
+                    let colon = label as! UILabel
+                    colon.textColor = self.colonColor                    
+                }
+            }
+        }
+    }
     
     open var hideTitles = false {
         didSet {
@@ -81,6 +90,9 @@ open class UITimer: UIView {
     ///   - color: Sets the border color.
     ///   - cornerRadius: Sets the corner radius of cells
     open func setBorder(width: CGFloat, color: UIColor = #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: CGFloat? = 10) {
+        self.cellBorderWidth = width
+        self.cellBorderColor = color
+        self.cellCornerRadius = cornerRadius
         let count = self.labelArray.count - 1
         for i in 0...count {
             self.labelArray[i].layer.borderWidth = width
@@ -89,7 +101,28 @@ open class UITimer: UIView {
         }
     }
     
-    open func customize(backgroundColor: UIColor? = #colorLiteral(red: 0.9322072864, green: 0.8707377911, blue: 0.9809352756, alpha: 1), numberColor: UIColor? = #colorLiteral(red: 0.5561129451, green: 0.1538559794, blue: 0.629018724, alpha: 1), font: UIFont?, borderWidth: CGFloat? = 0, borderColor: UIColor? = #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: CGFloat? = 10, titleColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1) ,colonColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)) {
+    /// Customize the appearance of the countdown view.
+    /// - Parameters:
+    ///   - type: Decides what type of countdown to show.
+    ///   - backgroundColor: Sets the background color of the timer cells.
+    ///   - numberColor: Sets the color of the timer numbers.
+    ///   - font: Sets the font to use for the timer numbers.
+    ///   - borderWidth: Sets the border width of each timer cell.
+    ///   - borderColor: Sets the border color of each timer cell.
+    ///   - cornerRadius: Sets the corner radius of each timer cell.
+    ///   - titleColor: Sets the color of the titles below the timer.
+    ///   - colonColor: Sets the color of the separator colons.
+    open func customize(type: UITimerType? = .doubleField, backgroundColor: UIColor? = #colorLiteral(red: 0.9322072864, green: 0.8707377911, blue: 0.9809352756, alpha: 1), numberColor: UIColor? = #colorLiteral(red: 0.5561129451, green: 0.1538559794, blue: 0.629018724, alpha: 1), font: UIFont? = .systemFont(ofSize: 15), borderWidth: CGFloat? = 0, borderColor: UIColor? = #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: CGFloat? = 10, titleColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1), titleFont: UIFont? = .systemFont(ofSize: 12), colonColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)) {
+        self.type = type!
+        self.cellBackgroundColor = backgroundColor!
+        self.cellNumberColor = numberColor!
+        self.cellFont = font
+        self.cellBorderWidth = borderWidth
+        self.cellBorderColor = borderColor
+        self.cellCornerRadius = cornerRadius
+        if self.labelArray == [] {
+            self.countDown = 10000
+        }
         let count = self.labelArray.count - 1
         for i in 0...count {
             self.labelArray[i].backgroundColor = backgroundColor!
@@ -99,6 +132,7 @@ open class UITimer: UIView {
             self.labelArray[i].layer.borderColor = borderColor!.cgColor
             self.labelArray[i].layer.cornerRadius = cornerRadius!
         }
+        self.titleFont = titleFont
         self.textColor = titleColor!
         self.colonColor = colonColor!
     }
@@ -112,6 +146,23 @@ open class UITimer: UIView {
             }
         }
     }
+    
+    /// Sets the font to use for the bottom titles.
+    open var titleFont: UIFont? {
+        didSet {
+            for titleLabel in titlesStackView.arrangedSubviews {
+                let label = titleLabel as! UILabel
+                label.font = self.titleFont
+            }
+        }
+    }
+    
+    fileprivate var cellBackgroundColor: UIColor = #colorLiteral(red: 0.9322072864, green: 0.8707377911, blue: 0.9809352756, alpha: 1)
+    fileprivate var cellNumberColor: UIColor = #colorLiteral(red: 0.5561129451, green: 0.1538559794, blue: 0.629018724, alpha: 1)
+    fileprivate var cellFont: UIFont?
+    fileprivate var cellBorderWidth: CGFloat?
+    fileprivate var cellBorderColor: UIColor?
+    fileprivate var cellCornerRadius: CGFloat?
     
     fileprivate var timer = Timer() {
         didSet {
@@ -584,11 +635,23 @@ open class UITimer: UIView {
         if type == .singleField {
             for _ in 0...3 {
                 let label = TimerView()
+                label.backgroundColor = self.cellBackgroundColor
+                label.color = self.cellNumberColor
+                label.font = self.cellFont
+                label.layer.borderWidth = self.cellBorderWidth ?? 0
+                label.layer.borderColor = self.cellBorderColor?.cgColor ?? UIColor.clear.cgColor
+                label.layer.cornerRadius = self.cellCornerRadius ?? 15
                 self.labelArray.append(label)
             }
         } else {
             for _ in 0...7 {
                 let label = TimerView()
+                label.backgroundColor = self.cellBackgroundColor
+                label.color = self.cellNumberColor
+                label.font = self.cellFont
+                label.layer.borderWidth = self.cellBorderWidth ?? 0
+                label.layer.borderColor = self.cellBorderColor?.cgColor ?? UIColor.clear.cgColor
+                label.layer.cornerRadius = self.cellCornerRadius ?? 15
                 self.labelArray.append(label)
             }
         }
@@ -602,6 +665,7 @@ open class UITimer: UIView {
                     if self.setColonSeparators {
                         let separator = UILabel()
                         separator.text = ":"
+                        separator.tag = 5
                         separator.textAlignment = .center
                         separator.font = .boldSystemFont(ofSize: 25)
                         separator.textColor = self.colonColor
@@ -618,6 +682,7 @@ open class UITimer: UIView {
                 if self.setColonSeparators {
                     let separator = UILabel()
                     separator.text = ":"
+                    separator.tag = 5
                     separator.textAlignment = .center
                     separator.font = .boldSystemFont(ofSize: 25)
                     separator.textColor = self.colonColor
