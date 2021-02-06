@@ -68,9 +68,9 @@
 			children = (
 				454ABD2825C96244008D5D32 /* UITimer.h */,
 				454ABD5925C962A8008D5D32 /* UITimer.swift */,
+				454ABD6225CA7FA1008D5D32 /* TimerView.swift */,
 				454ABD6C25CACD53008D5D32 /* UITimerDelegate.swift */,
 				454ABD6625CAA28C008D5D32 /* UITimerEnums.swift */,
-				454ABD6225CA7FA1008D5D32 /* TimerView.swift */,
 				454ABD2925C96244008D5D32 /* Info.plist */,
 			);
 			path = UITimer;

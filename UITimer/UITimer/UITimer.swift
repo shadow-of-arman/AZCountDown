@@ -27,6 +27,8 @@ open class UITimer: UIView {
     /// Sets colons to separate seconds from minutes from hours from days. 
     open var setColonSeparators = false
     
+    open var colonColor: UIColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
+    
     open var hideTitles = false {
         didSet {
             self.titlesStackView.isHidden = self.hideTitles
@@ -87,8 +89,22 @@ open class UITimer: UIView {
         }
     }
     
+    open func customize(backgroundColor: UIColor? = #colorLiteral(red: 0.9322072864, green: 0.8707377911, blue: 0.9809352756, alpha: 1), numberColor: UIColor? = #colorLiteral(red: 0.5561129451, green: 0.1538559794, blue: 0.629018724, alpha: 1), font: UIFont?, borderWidth: CGFloat? = 0, borderColor: UIColor? = #colorLiteral(red: 0.8252273202, green: 0.6826880574, blue: 0.9464033246, alpha: 1), cornerRadius: CGFloat? = 10, titleColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1) ,colonColor: UIColor? = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)) {
+        let count = self.labelArray.count - 1
+        for i in 0...count {
+            self.labelArray[i].backgroundColor = backgroundColor!
+            self.labelArray[i].color = numberColor!
+            self.labelArray[i].font = font
+            self.labelArray[i].layer.borderWidth = borderWidth!
+            self.labelArray[i].layer.borderColor = borderColor!.cgColor
+            self.labelArray[i].layer.cornerRadius = cornerRadius!
+        }
+        self.textColor = titleColor!
+        self.colonColor = colonColor!
+    }
+    
     /// Sets the color of the text fields below the timer.
-    open var textColor: UIColor = .black {
+    open var textColor: UIColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1) {
         didSet {
             for i in 0...3 {
                 let label = titlesStackView.arrangedSubviews[i] as! UILabel
@@ -108,6 +124,7 @@ open class UITimer: UIView {
         didSet {
             for i in 0...3 {
                 let label = titlesStackView.arrangedSubviews[i] as! UILabel
+                label.textColor = self.textColor
                 label.text = titles[i]
             }
         }
@@ -587,7 +604,7 @@ open class UITimer: UIView {
                         separator.text = ":"
                         separator.textAlignment = .center
                         separator.font = .boldSystemFont(ofSize: 25)
-                        separator.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
+                        separator.textColor = self.colonColor
                         self.timerStackView.insertArrangedSubview(separator, at: (i + 1 + (i / 2)))
                         self.timerStackView.setCustomSpacing(-5, after: separator)
                         self.timerStackView.setCustomSpacing(-5, after: labelArray[i])
@@ -603,7 +620,7 @@ open class UITimer: UIView {
                     separator.text = ":"
                     separator.textAlignment = .center
                     separator.font = .boldSystemFont(ofSize: 25)
-                    separator.textColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1)
+                    separator.textColor = self.colonColor
                     self.timerStackView.insertArrangedSubview(separator, at: (2 * i + 1))
                     self.timerStackView.setCustomSpacing(-20, after: separator)
                     self.timerStackView.setCustomSpacing(-20, after: labelArray[i])
