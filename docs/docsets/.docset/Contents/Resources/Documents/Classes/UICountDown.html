@@ -17,7 +17,7 @@
     <a title="UICountDown Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html"> Docs</a> (46% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
         <p class="header-right">
           <form role="search" action="../search.json">
             <input type="text" placeholder="Search documentation" data-typeahead>
@@ -73,7 +73,7 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>A customizable view that sets a timer and starts counting down towards zero from the given value.</p>
 
           </section>
           <section class="section task-group-section">
@@ -92,7 +92,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The countdown view&rsquo;s delegate.</p>
 
                       </div>
                       <div class="declaration">
@@ -173,7 +173,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Sets the color of the separator colons.</p>
 
                       </div>
                       <div class="declaration">
@@ -200,7 +200,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Decides wether to hide the titles below the countdown.</p>
 
                       </div>
                       <div class="declaration">
@@ -696,7 +696,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns an object initialized from data in a given unarchiver.</p>
 
                       </div>
                       <div class="declaration">
@@ -707,15 +707,34 @@
 
                         </div>
                       </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>coder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An unarchiver object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </section>
                   </div>
                 </li>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:11AZCountDown07UICountB0C8Interval4Type8FromTime18SetColonSeparators9TextColorACSdSg_AA0cbE0OSgSiSbSgSo7UIColorCSgtcfc"></a>
-                    <a name="//apple_ref/swift/Method/init(Interval:Type:FromTime:SetColonSeparators:TextColor:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:11AZCountDown07UICountB0C8Interval4Type8FromTime18SetColonSeparators9TextColorACSdSg_AA0cbE0OSgSiSbSgSo7UIColorCSgtcfc">init(Interval:<wbr>Type:<wbr>FromTime:<wbr>SetColonSeparators:<wbr>TextColor:<wbr>)</a>
+                    <a name="/s:11AZCountDown07UICountB0C8fromTime8interval4typeACSi_SdSgAA0cB4TypeOSgtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(fromTime:interval:type:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:11AZCountDown07UICountB0C8fromTime8interval4typeACSi_SdSgAA0cB4TypeOSgtcfc">init(fromTime:<wbr>interval:<wbr>type:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -723,16 +742,59 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Initializes a UICountdown object and sets up its properties.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="kt">Interval</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="k">Type</span><span class="p">:</span> <span class="kt"><a href="../Enums/UICountDownType.html">UICountDownType</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">doubleDigit</span><span class="p">,</span> <span class="kt">FromTime</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="kt">SetColonSeparators</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">?</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span> <span class="kt">TextColor</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">white</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">fromTime</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">interval</span><span class="p">:</span> <span class="kt">Double</span><span class="p">?</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums/UICountDownType.html">UICountDownType</a></span><span class="p">?</span> <span class="o">=</span> <span class="o">.</span><span class="n">doubleDigit</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>Interval</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The time interval between each unit of time.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>Type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The type of UICountdown to use.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>FromTime</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The time from which the countdown should start counting down to zero.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -750,7 +812,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns the time remaining in the countdown in seconds.</p>
 
                       </div>
                       <div class="declaration">
@@ -760,6 +822,25 @@
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">secondsRemaining</span><span class="p">(</span><span class="nv">seconds</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>seconds</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The seconds remaining from the countdown to end.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </section>
                   </div>
@@ -777,7 +858,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Gets called when the timer reaches zero.</p>
 
                       </div>
                       <div class="declaration">
