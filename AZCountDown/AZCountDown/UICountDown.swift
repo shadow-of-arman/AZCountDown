@@ -9,8 +9,10 @@
 
 import UIKit
 
+/// A customizable view that sets a timer and starts counting down towards zero from the given value.
 open class UICountDown: UIView {
     
+    /// The countdown view's delegate.
     open var delegate: UICountDownDelegate?
     
     /// Decides what type of countdown to show.
@@ -28,6 +30,7 @@ open class UICountDown: UIView {
     /// Sets colons to separate seconds from minutes from hours from days. 
     open var setColonSeparators = false
     
+    /// Sets the color of the separator colons.
     open var colonColor: UIColor = #colorLiteral(red: 0.8940555453, green: 0.8786097169, blue: 0.9770053029, alpha: 1) {
         didSet {
             for label in self.timerStackView.arrangedSubviews {
@@ -39,6 +42,7 @@ open class UICountDown: UIView {
         }
     }
     
+    /// Decides wether to hide the titles below the countdown.
     open var hideTitles = false {
         didSet {
             self.titlesStackView.isHidden = self.hideTitles
@@ -242,18 +246,30 @@ open class UICountDown: UIView {
     }
     
     //MARK: - DEFAULT INITIALIZE
+    /// Initializes and returns a newly allocated view object with the specified frame rectangle.
+    /// - Parameter frame: The frame rectangle for the view, measured in points. The origin of the frame is relative to the superview in which you plan to add it. This method uses the frame rectangle to set the `center` and `bounds` properties accordingly.
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.createUI()
     }
     
+    /// Returns an object initialized from data in a given unarchiver.
+    /// - Parameter coder: An unarchiver object.
     required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    public init(Interval: Double? = 1.0, Type: UICountDownType? = .doubleDigit, FromTime: Int, SetColonSeparators: Bool? = true, TextColor: UIColor? = .white) {
+    /// Initializes a UICountdown object and sets up its properties.
+    /// - Parameters:
+    ///   - Interval: The time interval between each unit of time.
+    ///   - Type: The type of UICountdown to use.
+    ///   - FromTime: The time from which the countdown should start counting down to zero.
+    public init(fromTime: Int, interval: Double? = 1.0, type: UICountDownType? = .doubleDigit) {
         super.init(frame: .zero)
-        
+        self.createUI()
+        self.timeInterval = interval!
+        self.type = type!
+        self.countDownFrom = fromTime
     }
     
     //MARK: - INITIALIZE UI
@@ -695,7 +711,7 @@ open class UICountDown: UIView {
         }
     }
     
-    @objc func timerCalculation() {
+    @objc fileprivate func timerCalculation() {
         if self.type == .singleDigit {
             self.configCountDownTimer(totalTime: temp - 1)
         } else {
@@ -711,10 +727,13 @@ open class UICountDown: UIView {
 }
 
 extension UICountDown: UICountDownDelegate {
+    /// Returns the time remaining in the countdown in seconds.
+    /// - Parameter seconds: The seconds remaining from the countdown to end.
     public func secondsRemaining(seconds: Int) {
         //seconds remaining.
     }
     
+    /// Gets called when the timer reaches zero.
     public func countDownFinished() {
         //finished.
     }
