@@ -27,6 +27,12 @@ open class UITimer: UIView {
     /// Sets colons to separate seconds from minutes from hours from days. 
     open var setColonSeparators = false
     
+    open var hideTitles = false {
+        didSet {
+            self.titlesStackView.isHidden = self.hideTitles
+        }
+    }
+    
     /// Sets the time interval which the count down must obey. Must be set before countdown.
     open var timeInterval: Double = 1.0 
     
