@@ -50,7 +50,15 @@ open class UICountDown: UIView {
     }
     
     /// Sets the time interval which the count down must obey. Must be set before countdown.
-    open var timeInterval: Double = 1.0 
+    open var timeInterval: Double = 1.0
+    
+    /// Setting this value to false will make the timer always show the days section even if the time set is less than one day.
+    /// WARNING: Set this value BEFORE giving the countdown value.
+    open var allowRemovalOfDays = true
+    
+    /// Setting this value to false will make the timer always show the hours section even if the time set is less than one hour.
+    /// WARNING: Set this value BEFORE giving the countdown value.
+    open var allowRemovalOfHours = true
     
     /// Sets the time to countdown from.
     open var countDownFrom: Int = 1 {
@@ -63,8 +71,12 @@ open class UICountDown: UIView {
             } else {
                 self.configDoubleDigitCountDownTimer(totalTime: countDownFrom)
             }
-            self.checkIfDaysExist()
-            self.checkIfHoursExist()
+            if self.allowRemovalOfDays {
+                self.checkIfDaysExist()
+            }
+            if self.allowRemovalOfHours {
+                self.checkIfHoursExist()                
+            }
             temp = countDownFrom
         }
     }
