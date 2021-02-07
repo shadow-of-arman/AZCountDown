@@ -52,6 +52,7 @@ class ViewController: UIViewController {
         self.timer2.delegate = self
         self.timer2.setColonSeparators = true
         self.timer2.type = .doubleDigit
+        self.timer2.allowRemovalOfDays = false
         self.timer2.customize(backgroundColor: .cyan, numberColor: .darkGray, font: .systemFont(ofSize: 17), borderWidth: 1, borderColor: .darkGray, cornerRadius: 5, titleColor: .cyan, colonColor: .cyan)
         self.timer2.countdownFrom(days: 0, hours: 18, minutes: 46, seconds: 50)
         self.view.addSubview(self.timer2)
